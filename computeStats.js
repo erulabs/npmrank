@@ -29,10 +29,8 @@ function printTop(stats, count, sort, print) {
   var packages = allKeys.sort(sortProxy)
     .slice(0, Math.min(count, allKeys.length))
     .map(x => {
-      return [x, stats[x]]
+      process.stdout.write(x + ',' + stats[x] + '\n')
     })
-
-  process.stdout.write(JSON.stringify(packages))
 
   function sortProxy(x, y) {
     return sort(stats, x, y);
